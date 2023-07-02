@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profil</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <h1>Profil</h1>
+    <form action="/profile" method="post">
+        <label for="username">Nom d'utilisateur:</label>
+        <input type="text" id="username" name="username" value="{{ user.username }}" required><br><br>
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="password" value="{{ user.password }}" required><br><br>
+        <input type="submit" value="Enregistrer">
+    </form>
+    <a href="/delete" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">Supprimer</a>
+    <form id="delete-form" action="/delete" method="post" style="display: none;"></form>
+
+</body>
+</html>
